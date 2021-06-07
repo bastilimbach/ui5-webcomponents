@@ -39,7 +39,7 @@ const metadata = {
 	languageAware: true,
 	properties: /** @lends sap.ui.webcomponents.fiori.UploadCollectionItem.prototype */ {
 		/**
-		 * Holds <code>File</code>, associated with this item.
+		 * Holds an instance of <code>File</code> associated with this item.
 		 *
 		 * @type {File}
 		 * @defaultvalue null
@@ -73,13 +73,13 @@ const metadata = {
 		},
 
 		/**
-		 * Removes delete option from <code>ui5-upload-collection</code> with <code>mode</code> <code>Delete</code> for this item.
+		 * Disables delete option for this item when <code>ui5-upload-collection</code>'s <code>mode</code> is <code>Delete</code>.
 		 *
 		 * @type {boolean}
 		 * @defaultvalue false
 		 * @public
 		 */
-		noDelete: {
+		disableDelete: {
 			type: Boolean,
 		},
 
@@ -90,7 +90,7 @@ const metadata = {
 		 * @defaultvalue false
 		 * @public
 		 */
-		noRetry: {
+		hideRetry: {
 			type: Boolean,
 		},
 
@@ -101,7 +101,7 @@ const metadata = {
 		 * @defaultvalue false
 		 * @public
 		 */
-		noTerminate: {
+		hideTerminate: {
 			type: Boolean,
 		},
 
@@ -423,7 +423,7 @@ class UploadCollectionItem extends ListItem {
 	 * @override
 	 */
 	get disableDeleteButton() {
-		return this.noDelete;
+		return this.disableDelete;
 	}
 
 	get _fileNameWithoutExtension() {
@@ -459,11 +459,11 @@ class UploadCollectionItem extends ListItem {
 	}
 
 	get _showRetry() {
-		return !this.noRetry && this.uploadState === UploadState.Error;
+		return !this.hideRetry && this.uploadState === UploadState.Error;
 	}
 
 	get _showTerminate() {
-		return !this.noTerminate && this.uploadState === UploadState.Uploading;
+		return !this.hideTerminate && this.uploadState === UploadState.Uploading;
 	}
 
 	get _retryButtonTooltip() {
