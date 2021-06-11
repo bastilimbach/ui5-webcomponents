@@ -29,12 +29,13 @@ import {
 
 // Templates
 import ShellBarTemplate from "./generated/templates/ShellBarTemplate.lit.js";
-import ShellBarAlterateTemplateA from "./generated/templates/ShellBarAlterateTemplateA.lit.js";
-import ShellBarAlterateTemplateB from "./generated/templates/ShellBarAlterateTemplateB.lit.js";
+import ShellBarCenteredSearchTemplate from "./generated/templates/ShellBarCenteredSearchTemplate.lit.js";
 import ShellBarPopoverTemplate from "./generated/templates/ShellBarPopoverTemplate.lit.js";
 
 // Styles
 import styles from "./generated/themes/ShellBar.css.js";
+
+let TEMPLATE = ShellBarTemplate;
 
 /**
  * @public
@@ -43,6 +44,17 @@ const metadata = {
 	tag: "ui5-shellbar",
 	languageAware: true,
 	properties: /** @lends sap.ui.webcomponents.fiori.ShellBar.prototype */ {
+		/**
+		 * Defines the <code>template</code> which should be used.
+		 * A template defines the appearance of the ShellBar. It controls certain aspects like the
+		 * position of controls and size.
+		 * @type {string}
+		 * @defaultvalue ""
+		 * @public
+		 */
+		templateId: {
+			type: String
+		},
 
 		/**
 		 * Defines the <code>primaryTitle</code>.
@@ -402,15 +414,9 @@ class ShellBar extends UI5Element {
 		return litRender;
 	}
 
-    static get template() {
-        switch (Config.template) {
-            case "A":
-                return ShellHeaderATemplate;
-
-            default:
-                return ShellHeaderTemplate;
-        }
-    }
+	static get template() {
+		return TEMPLATE;
+	}
 
 	static get staticAreaTemplate() {
 		return ShellBarPopoverTemplate;
@@ -438,6 +444,8 @@ class ShellBar extends UI5Element {
 
 	constructor() {
 		super();
+
+		this._setTemplate(this.getAttribute("template-id"));
 
 		this._itemsInfo = [];
 		this._isInitialRendering = true;
@@ -478,6 +486,18 @@ class ShellBar extends UI5Element {
 		};
 
 		this.i18nBundle = getI18nBundle("@ui5/webcomponents-fiori");
+	}
+
+	_setTemplate(templateId) {
+		switch (templateId) {
+			case "A":
+				TEMPLATE = ShellBarCenteredSearchTemplate;
+				break;
+
+			default:
+				TEMPLATE = ShellBarTemplate;
+				break;
+		}
 	}
 
 	_menuItemPress(event) {
