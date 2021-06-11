@@ -29,6 +29,8 @@ import {
 
 // Templates
 import ShellBarTemplate from "./generated/templates/ShellBarTemplate.lit.js";
+import ShellBarAlterateTemplateA from "./generated/templates/ShellBarAlterateTemplateA.lit.js";
+import ShellBarAlterateTemplateB from "./generated/templates/ShellBarAlterateTemplateB.lit.js";
 import ShellBarPopoverTemplate from "./generated/templates/ShellBarPopoverTemplate.lit.js";
 
 // Styles
@@ -400,9 +402,15 @@ class ShellBar extends UI5Element {
 		return litRender;
 	}
 
-	static get template() {
-		return ShellBarTemplate;
-	}
+    static get template() {
+        switch (Config.template) {
+            case "A":
+                return ShellHeaderATemplate;
+
+            default:
+                return ShellHeaderTemplate;
+        }
+    }
 
 	static get staticAreaTemplate() {
 		return ShellBarPopoverTemplate;
