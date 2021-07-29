@@ -2,6 +2,7 @@ const assetsMeta = {
   "themes": {
     "default": "sap_fiori_3",
     "all": [
+      "sap_my_home",
       "sap_fiori_3",
       "sap_fiori_3_dark",
       "sap_belize",

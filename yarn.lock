@@ -1049,10 +1049,9 @@
     estree-walker "^1.0.1"
     picomatch "^2.2.2"
 
-"@sap-theming/theming-base-content@11.1.30":
+"@sap-theming/theming-base-content@bastilimbach/theming-base-content":
   version "11.1.30"
-  resolved "https://registry.npmjs.org/@sap-theming/theming-base-content/-/theming-base-content-11.1.30.tgz#04d578693b57e243287fb8060b8cc396971d52d7"
-  integrity sha512-vbiDvb7gD0dGHllIRVh9CQzG9DHAfyv+b8HjfmOF6I1D8s0uXHVuX9rMRirmfxBOEujdQPR3mgGnrAe9A36KEg==
+  resolved "https://codeload.github.com/bastilimbach/theming-base-content/tar.gz/f69777e8f60dc62219aac076e1c8938e1abdea7e"
 
 "@sindresorhus/is@^4.0.0":
   version "4.0.0"
@@ -5417,7 +5416,7 @@ is-windows@^1.0.2:
   resolved "https://registry.yarnpkg.com/is-windows/-/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
   integrity sha512-eXK1UInq2bPmjyX6e3VHIzMLobc4J94i4AWn+Hpq3OU5KkrRC96OAcR3PRJ/pGu6m8TRnBHP9dkXQVsT/COVIA==
 
-is-wsl@^2.2.0:
+is-wsl@^2.1.1, is-wsl@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/is-wsl/-/is-wsl-2.2.0.tgz#74a4c76e77ca9fd3f932f290c17ea326cd157271"
   integrity sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==
